@@ -15,11 +15,12 @@ def run_baseline(X, y, race):
                         stratify=y)
 
     model = GradientBoostingClassifier(
-        n_estimators=100,
-        max_depth=3,
-        learning_rate=0.1,
-        random_state=42
-    )
+    n_estimators=50,
+    max_depth=2,
+    learning_rate=0.1,
+    random_state=42,
+    subsample=0.5
+)
     model.fit(X_train, y_train)
 
     y_prob = model.predict_proba(X_test)[:, 1]
